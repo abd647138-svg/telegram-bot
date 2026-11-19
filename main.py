@@ -1,11 +1,12 @@
+import os
 import telebot
 
-TOKEN = "9127855024:AAHBANudjezUUO9ytD9wLq8YvlAoS_0uQng"
+TOKEN = os.environ.get("TELEGRAM_TOKEN")
 bot = telebot.TeleBot(TOKEN)
 
 @bot.message_handler(commands=['start'])
 def start(message):
-    bot.reply_to(message, "اهلا بيك، البوت يخدم 🔥")
+    bot.reply_to(message, "مرحبا بيك في البوت 🔥")
 
 @bot.message_handler(func=lambda m: True)
 def echo(message):
